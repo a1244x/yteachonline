@@ -20,14 +20,7 @@ import java.util.ArrayList;
 import java.util.List;
 import java.util.stream.Collectors;
 
-/**
- * <p>
- * 权限 服务实现类
- * </p>
- *
- * @author testjava
- * @since 2020-01-12
- */
+
 @Service
 public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permission> implements PermissionService {
 
@@ -98,10 +91,6 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper, Permiss
             rolePermission.setPermissionId(permissionId);
             rolePermissionList.add(rolePermission);
         }
-        RolePermission specialPer = new RolePermission();
-        specialPer.setRoleId(roleId);
-        specialPer.setPermissionId("1");
-        rolePermissionList.add(specialPer);
         rolePermissionService.saveBatch(rolePermissionList);
     }
 

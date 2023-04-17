@@ -4,7 +4,7 @@ import com.ytonline.commonutils.R;
 import io.swagger.annotations.Api;
 import org.springframework.web.bind.annotation.*;
 
-@Api(tags = "讲师登录")
+@Api(tags = "登录")
 @RestController
 
 @RequestMapping("/eduservice/user")

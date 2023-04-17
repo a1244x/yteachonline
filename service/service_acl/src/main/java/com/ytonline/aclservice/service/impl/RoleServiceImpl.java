@@ -17,14 +17,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.stream.Collectors;
 
-/**
- * <p>
- *  服务实现类
- * </p>
- *
- * @author testjava
- * @since 2020-01-12
- */
+
 @Service
 public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements RoleService {
 
@@ -34,7 +27,7 @@ public class RoleServiceImpl extends ServiceImpl<RoleMapper, Role> implements Ro
 
     //根据用户获取角色数据
     @Override
-    public Map<String, Object> findRoleByUserId(Long userId) {
+    public Map<String, Object> findRoleByUserId(String userId) {
         //查询所有的角色
         List<Role> allRolesList =baseMapper.selectList(null);
 

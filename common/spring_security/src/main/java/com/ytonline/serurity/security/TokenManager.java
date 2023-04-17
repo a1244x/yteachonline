@@ -7,7 +7,14 @@ import org.springframework.stereotype.Component;
 
 import java.util.Date;
 
-
+/**
+ * <p>
+ * token管理
+ * </p>
+ *
+ * @author qy
+ * @since 2019-11-08
+ */
 @Component
 public class TokenManager {
 

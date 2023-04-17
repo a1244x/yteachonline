@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ytonline.examservice.mapper.ExamQuestionAnswerMapper">
+
+    <select id="checkExamIdAndUserId" resultType="java.lang.Integer">
+        select count(*) from exam_question_answer where exam_question_answer.exam_id = #{examId} and exam_question_answer.user_id = #{userId}
+    </select>
+    <select id="getFinalScore" resultType="java.lang.Integer">
+        SELECT sum(score) from exam_question inner join exam_question_answer on exam_question.id = exam_question_answer.question_id and exam_question.answer = exam_question_answer.answer where exam_question_answer.exam_id = #{examId} and exam_question_answer.user_id = #{userId}
+    </select>
+</mapper>

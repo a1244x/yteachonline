@@ -9,13 +9,20 @@ import org.springframework.security.web.authentication.logout.LogoutHandler;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-
+/**
+ * <p>
+ * 登出业务逻辑类
+ * </p>
+ *
+ * @author qy
+ * @since 2019-11-08
+ */
 public class TokenLogoutHandler implements LogoutHandler {
 
-    private com.ytonline.serurity.security.TokenManager tokenManager;
+    private TokenManager tokenManager;
     private RedisTemplate redisTemplate;
 
-    public TokenLogoutHandler(com.ytonline.serurity.security.TokenManager tokenManager, RedisTemplate redisTemplate) {
+    public TokenLogoutHandler(TokenManager tokenManager, RedisTemplate redisTemplate) {
         this.tokenManager = tokenManager;
         this.redisTemplate = redisTemplate;
     }

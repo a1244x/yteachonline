@@ -18,6 +18,7 @@
         <module>service_cms</module>
         <module>service_ucenter</module>
         <module>service_acl</module>
+        <module>service_exam</module>
     </modules>
 
     <properties>
@@ -148,6 +149,12 @@
             <version>1.4.7</version>
         </dependency>
 
+        <dependency>
+            <groupId>cn.hutool</groupId>
+            <artifactId>hutool-all</artifactId>
+            <version>4.5.15</version>
+        </dependency>
+
     </dependencies>
 
     <build>
@@ -160,6 +167,8 @@
                 <filtering>false</filtering>
             </resource>
         </resources>
+
+
     </build>
 
 </project>

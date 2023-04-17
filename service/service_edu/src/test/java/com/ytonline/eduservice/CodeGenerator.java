@@ -23,7 +23,7 @@ public class CodeGenerator {
         String projectPath = System.getProperty("user.dir");
         System.out.println(projectPath);
         gc.setOutputDir(projectPath + "/src/main/java");
-        gc.setAuthor("dd.ytonline");
+        gc.setAuthor("com.ytonline");
         gc.setOpen(false); //生成后是否打开资源管理器
         gc.setFileOverride(false); //重新生成时文件是否覆盖
         /*

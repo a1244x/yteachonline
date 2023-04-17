@@ -14,17 +14,10 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-/**
- * <p>
- *  前端控制器
- * </p>
- *
- * @author testjava
- * @since 2020-01-12
- */
+
 @RestController
 @RequestMapping("/admin/acl/role")
-//
+//@CrossOrigin
 public class RoleController {
 
     @Autowired
@@ -50,7 +43,7 @@ public class RoleController {
 
     @ApiOperation(value = "获取角色")
     @GetMapping("get/{id}")
-    public R get(@PathVariable Long id) {
+    public R get(@PathVariable String id) {
         Role role = roleService.getById(id);
         return R.success().data("item", role);
     }

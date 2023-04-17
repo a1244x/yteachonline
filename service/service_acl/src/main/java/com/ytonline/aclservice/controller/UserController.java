@@ -18,17 +18,10 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 import java.util.Map;
 
-/**
- * <p>
- * 用户表 前端控制器
- * </p>
- *
- * @author testjava
- * @since 2020-01-12
- */
+
 @RestController
 @RequestMapping("/admin/acl/user")
-//
+//@CrossOrigin
 public class UserController {
 
     @Autowired
@@ -39,15 +32,7 @@ public class UserController {
 
     @ApiOperation(value = "获取管理用户分页列表")
     @GetMapping("{page}/{limit}")
-    public R index(
-            @ApiParam(name = "page", value = "当前页码", required = true)
-            @PathVariable Long page,
-
-            @ApiParam(name = "limit", value = "每页记录数", required = true)
-            @PathVariable Long limit,
-
-            @ApiParam(name = "courseQuery", value = "查询对象", required = false)
-             User userQueryVo) {
+    public R index(@PathVariable Long page, @PathVariable Long limit, User userQueryVo) {
         Page<User> pageParam = new Page<>(page, limit);
         QueryWrapper<User> wrapper = new QueryWrapper<>();
         if(!StringUtils.isEmpty(userQueryVo.getUsername())) {
@@ -66,12 +51,6 @@ public class UserController {
         return R.success();
     }
 
-    @GetMapping("get/{id}")
-    public R getById(@PathVariable Long id) {
-        User item = userService.getById(id);
-        return R.success().data("item",item);
-    }
-
     @ApiOperation(value = "修改管理用户")
     @PutMapping("update")
     public R updateById(@RequestBody User user) {
@@ -86,6 +65,12 @@ public class UserController {
         return R.success();
     }
 
+    @GetMapping("getUserId/{userId}")
+    public R getUserId(@PathVariable String userId){
+        User userById = userService.getById(userId);
+        return R.success().data("userById",userById);
+    }
+
     @ApiOperation(value = "根据id列表删除管理用户")
     @DeleteMapping("batchRemove")
     public R batchRemove(@RequestBody List<String> idList) {
@@ -95,7 +80,7 @@ public class UserController {
 
     @ApiOperation(value = "根据用户获取角色数据")
     @GetMapping("/toAssign/{userId}")
-    public R toAssign(@PathVariable Long userId) {
+    public R toAssign(@PathVariable String userId) {
         Map<String, Object> roleMap = roleService.findRoleByUserId(userId);
         return R.success().data(roleMap);
     }

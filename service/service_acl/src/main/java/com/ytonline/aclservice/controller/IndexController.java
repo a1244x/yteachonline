@@ -15,7 +15,7 @@ import java.util.Map;
 
 @RestController
 @RequestMapping("/admin/acl/index")
-//
+//@CrossOrigin
 public class IndexController {
 
     @Autowired
